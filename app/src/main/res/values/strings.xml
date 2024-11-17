@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">UMKM Market</string>
+    <string name="product_image_desc">Image of the product</string>
+    <string name="cart">Cart</string>
+    <string name="home">Home</string>
+    <string name="orders">Orders</string>
+    <string name="info">Info</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="toko">Toko</string>
+
+</resources>

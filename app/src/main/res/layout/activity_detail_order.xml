@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/text_invoice_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice ID: "/>
+
+            <TextView
+                android:id="@+id/text_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name: "/>
+
+            <TextView
+                android:id="@+id/text_user_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Phone: "/>
+
+            <TextView
+                android:id="@+id/text_total_payment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Total Payment: "/>
+
+            <TextView
+                android:id="@+id/text_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Status: "/>
+
+
+            <TextView
+                android:id="@+id/text_invoice_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invoice Date:"/>
+
+            <TextView
+                android:id="@+id/text_payment_method"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Payment Method:"/>
+
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="0" />
+
+            <Button
+                android:id="@+id/button_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate Order" />
+
+            <Button
+                android:id="@+id/button_upload_payment_proof"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Upload Payment Proof"/>
+
+            <Button
+                android:id="@+id/button_order_received"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pesanan Diterima"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_order_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:id="@+id/image_payment_proof"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
