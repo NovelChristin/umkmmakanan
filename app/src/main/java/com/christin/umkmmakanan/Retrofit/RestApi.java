@@ -31,6 +31,14 @@ public interface RestApi {
                                @Field("adminId") String adminId,
                                @Field("rating") String rating);
 
+        @GET("api/order")
+    Call<OrderResponse> getOrderList(
+            @Query("userId") String userId
+    );
+
+    @POST("api/order")
+    Call<Response> createOrder(@Body Order order);
+
     @Multipart
     @PUT("api/order")
     Call<Response> updateOrderStatus(

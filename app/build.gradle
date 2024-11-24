@@ -38,6 +38,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
+    //room
+    implementation "androidx.room:room-runtime-android:2.7.0-alpha11"
+    annotationProcessor "androidx.room:room-compiler:2.6.1"
+    androidTestImplementation "androidx.room:room-testing:2.6.1"
+
+    //lifecycle components
+    implementation "androidx.lifecycle:lifecycle-viewmodel:2.8.7"
+    implementation "androidx.lifecycle:lifecycle-livedata:2.8.7"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.8.7"
+
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

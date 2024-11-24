@@ -5,5 +5,42 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="top"
+        android:text=" Keranjang Belanja"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartData"
+        android:layout_width="match_parent"
+        android:layout_height="593dp"
+        android:layout_above="@id/chkCOD" />
+
+    <CheckBox
+        android:id="@+id/chkCOD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/txtCartTotal"
+        android:text="Bayar di Tempat (COD)" />
+
+    <TextView
+        android:id="@+id/txtCartTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnCheckout"
+        android:text="Total : Rp.0"
+        android:textAlignment="textEnd"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnCheckout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:text="Checkout" />
 </LinearLayout>

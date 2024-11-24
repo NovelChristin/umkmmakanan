@@ -57,6 +57,11 @@
             android:layout_height="wrap_content"
             android:text="+" />
     </LinearLayout>
-
+    <Button
+        android:id="@+id/btnAddCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Tambah Ke Keranjang" />
 
 </LinearLayout>

@@ -31,7 +31,14 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
-
+        Order order = orderList.get(position);
+        holder.invoiceIdTextView.setText("Invoice ID: " + order.getInvoiceId());
+        holder.totalPaymentTextView.setText("Total Payment: Rp. " + order.getTotalPayment());
+        holder.txtNamaToko.setText("Nama Toko: " + order.getAdminName());
+        holder.txtTglOrder.setText("Tanggal Order: " + order.getCreatedAt());
+        holder.itemView.setOnClickListener(v -> {
+            Utils.sendOrderToActivity(context,order, DetailOrderActivity.class);
+        });
     }
 
     @Override
@@ -42,15 +49,15 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public static class OrderViewHolder extends RecyclerView.ViewHolder {
         TextView invoiceIdTextView;
         TextView totalPaymentTextView;
-        TextView productNameTextView; // Tambahkan TextView untuk nama produk
-        TextView productQuantityTextView; // Tambahkan TextView untuk kuantitas produk
+       TextView txtNamaToko;// Tambahkan TextView untuk kuantitas produk
+        TextView txtTglOrder;
 
         public OrderViewHolder(View itemView) {
             super(itemView);
             invoiceIdTextView = itemView.findViewById(R.id.text_invoice_id);
             totalPaymentTextView = itemView.findViewById(R.id.text_total_payment);
-            productNameTextView = itemView.findViewById(R.id.text_product_name); // Misalnya, nama produk
-            productQuantityTextView = itemView.findViewById(R.id.text_product_quantity); // Misalnya, kuantitas produk
+            txtTglOrder = itemView.findViewById(R.id.txtTglOrder);
+            txtNamaToko = itemView.findViewById(R.id.txt_order_toko_nama); // Misalnya, kuantitas produk
         }
     }
 }
