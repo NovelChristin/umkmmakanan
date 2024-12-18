@@ -21,6 +21,14 @@ public class OrderProduct implements Serializable {
 
     @SerializedName("_id")
     private String _id;
+    public OrderProduct(String productId, String name, Integer price, Integer quantity, Integer productTotal, String picture){
+        this.productId = productId;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+        this.productTotal = productTotal;
+        this.picture = picture;
+    }
 
     public String getProductId() {
         return productId;
