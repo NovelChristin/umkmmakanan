@@ -18,6 +18,7 @@ import com.christin.umkmmakanan.Helpers.Utils;
 import com.christin.umkmmakanan.R;
 import com.christin.umkmmakanan.Retrofit.Order;
 import com.christin.umkmmakanan.Retrofit.Product;
+import com.christin.umkmmakanan.Retrofit.OrderProduct;
 import com.christin.umkmmakanan.Retrofit.Response;
 import com.christin.umkmmakanan.Retrofit.RestApi;
 import com.christin.umkmmakanan.room.CartItem;
@@ -99,9 +100,12 @@ public class CartActivity extends AppCompatActivity implements CartItemViewHolde
         order.setStatus("Menunggu Pembayaran");
         adminId = cartItems.get(0).getAdminId();
         adminName = cartItems.get(0).getAdminName();
-        List<Product> products = new ArrayList<Product>();
-        for(int i=1;i<cartItems.size();i++){
+        List<OrderProduct> products = new ArrayList<OrderProduct>();
+//        Utils.show(CartActivity.this,"Cart Size : "+cartItems.size());
+        for(int i=0;i<cartItems.size();i++){
+
             if(!adminId.equals(cartItems.get(i).getAdminId())) {
+                products.clear();;
                 orders.add(order);
                 order = new Order();
                 order.setUserId(userId);
@@ -114,14 +118,20 @@ public class CartActivity extends AppCompatActivity implements CartItemViewHolde
                 order.setStatus("Menunggu Pembayaran");
                 adminId = cartItems.get(i).getAdminId();
                 adminName = cartItems.get(i).getAdminName();
-                Product product =new Product(cartItems.get(i).getProductId(),cartItems.get(i).getAdminId(),cartItems.get(i).getAdminName(),cartItems.get(i).getProductName(),"",cartItems.get(i).getPrice(),cartItems.get(i).getPicture(),true);
-                products.add(product);
+                CartItem cart = cartItems.get(i);
+                OrderProduct product =new OrderProduct(cart.getProductId(),cart.getProductName(),cart.getPrice(),
+                        cart.getQuantity(),cart.getTotal(),cart.getPicture());
 
+
+                products.add(product);
+//                Utils.show(CartActivity.this, "Price : "+order.getTotalPayment());
             }else{
                 double tmp = order.getTotalPayment();
                 order.setTotalPayment(tmp+cartItems.get(i).getTotal());
-                Product product =new Product(cartItems.get(i).getProductId(),cartItems.get(i).getAdminId(),cartItems.get(i).getAdminName(),cartItems.get(i).getProductName(),"",cartItems.get(i).getPrice(),cartItems.get(i).getPicture(),true);
+                OrderProduct product =new OrderProduct(cartItems.get(i).getProductId(),cartItems.get(i).getProductName(),cartItems.get(i).getPrice(),cartItems.get(i).getQuantity(),cartItems.get(i).getTotal(),cartItems.get(i).getPicture());
                 products.add(product);
+                order.setProduct(products);
+//                Utils.show(CartActivity.this, "Price : "+order.getTotalPayment());
             }
         }
         orders.add(order);
